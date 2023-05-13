@@ -25,21 +25,58 @@ public class SinglyLinkedList {
 	public void remove() {
 		//removes node from the end of the list
 		Node runner = this.head;
+//		System.out.println(runner.data);
 		if(runner.next == null) {
-			runner = null;
-		} else {			
-			while(runner.next != null) {
+			this.head = null;
+		} else {
+			while(runner.next.next != null) {
 				runner = runner.next;
 			}
-			runner = null;
+			runner.next = null;
 		}
 	}
 	
 	public void printValues() {
 		Node runner = this.head;
+		if(runner == null) {
+			System.out.println("EMPTY LIST");
+		}
+		else {			
+			while(runner != null) {
+				System.out.println(runner.data);
+				runner = runner.next;
+			}
+		}
+	}
+	
+	public Node find(int data) {
+		Node runner = this.head;
 		while(runner != null) {
-			System.out.println(runner.data);
+			if(runner.data == data) {
+				return runner;
+			}
 			runner = runner.next;
+		}
+		return null;
+	}
+	
+	public void removeAt(int indexPosition) {
+		int counter = 0;
+		Node runner = this.head;
+		
+		if(indexPosition == counter) {
+			this.head = runner.next;
+		}
+		else {			
+			while(counter < indexPosition-1) {
+				runner = runner.next;
+				counter++;
+			}
+			if(runner.next == null) {
+				System.out.println("Index position too large for list size");
+			} else {				
+				runner.next = runner.next.next;
+			}
 		}
 	}
 

@@ -13,12 +13,20 @@ public class ListTester {
 	        
 //	        sll.printValues();
 	        
-	        sll.remove();
-
-	        sll.printValues();
-//	        
 //	        sll.remove();
-//	        
-//	        sll.printValues();
+//	        sll.remove();
+//	        sll.remove();
+//	        sll.remove();
+//	        sll.remove();
+//	        sll.remove();
+	        
+	        sll.printValues();
+	        
+	        System.out.println("Find node 3: " + sll.find(3));
+	        System.out.println("Find node 10: " + sll.find(10));
+	        System.out.println("Find node 7: " + sll.find(7));
+	        
+	        sll.removeAt(6);
+	        sll.printValues();
 	}
 }
